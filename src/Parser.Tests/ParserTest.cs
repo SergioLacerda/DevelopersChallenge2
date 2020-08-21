@@ -52,5 +52,16 @@ namespace Parser
                     Console.WriteLine("totalAmount: " + dto.TotalAmount);
             }
         }
+
+       [Test]
+        public void removeDuplicatedTransactions(){
+            string[] filePath = _parser.getAllFileNames("C:\\dev\\c_nibu\\Parser.Tests\\testFolder");
+
+            //iterate through files and collect output. Second Option
+            List<TransactionDTO> result =_parser.getTransactionsFromOFXFile(filePath[0]);
+
+            _parser.getTransactionsFromOFXFile(result);
+
+        }
     }
 }
